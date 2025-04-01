@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    protected $table = 'companies';
-
-    public function soldiers()
+    public function Soldiers()
     {
-        return $this->hasMany(Soldier::class, 'company_fk');
+        return $this->hasMany('App\Models\Soldier');
     }
 
-    public function barracks()
+    public function Barracks()
     {
-        return $this->belongsToMany(Barrack::class, 'barracks_companies', 'company_fk', 'barracks_fk');
+        return $this->belongsToMany('App\Models\Barracks');
     }
 }

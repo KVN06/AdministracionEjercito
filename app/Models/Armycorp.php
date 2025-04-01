@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Soldier;
 use Illuminate\Database\Eloquent\Model;
 
-class ArmyCorp extends Model
+class Armycorp extends Model
 {
-    protected $table = 'armycorps';
-
-    public function soldiers()
+    public function Soldiers()
     {
-        return $this->hasMany(Soldier::class, 'army_corp_fk');
+        return $this->hasMany('App\Models\Soldier');
     }
 }

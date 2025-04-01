@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
-class Service extends Model
+class Services extends Model
 {
-    protected $table = 'services';
-
-    public function soldiers()
+    public function Soldiers()
     {
-        return $this->belongsToMany(Soldier::class, 'services_soldiers', 'service_fk', 'soldier_fk');
+        return $this->belongsToMany('App\Models\Soldier');
     }
 }

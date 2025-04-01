@@ -4,17 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Barrack extends Model
+class Barracks extends Model
 {
-    protected $table = 'barracks';
-
-    public function companies()
+    public function Soldiers()
     {
-        return $this->belongsToMany(Company::class, 'barracks_companies', 'barracks_fk', 'company_fk');
+        return $this->hasMany('App\Models\Soldier');
     }
 
-    public function soldiers()
+    public function Companies()
     {
-        return $this->hasMany(Soldier::class, 'barracks_fk');
+        return $this->belongsToMany('App\Models\Company');
     }
 }
